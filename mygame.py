@@ -29,11 +29,17 @@ collided = False
 
 while is_game_running:
     clock.tick(60)
-    
-    text = font.render(str(game_score), True, (255,255,255))
-    screen.blit(text, (900,20))
-    
     screen.fill((0, 0, 0))
+
+    game_message = "Game Score : " + str(game_score) 
+    text = font.render(game_message, True, (255,255,255))
+    screen.blit(text, (850,20))
+
+    miss_message = "Miss Score : " + str(miss_score) 
+    text = font.render(miss_message, True, (255,255,255))
+    screen.blit(text, (850,40))
+    
+    
     # If collision happened, draw a new player
     if collided == True:
         player = pygame.Rect((random.randint(0, 800), 150, 50, 50))
